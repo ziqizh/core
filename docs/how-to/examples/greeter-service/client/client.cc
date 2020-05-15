@@ -51,6 +51,8 @@ class GreeterClient {
     // the server and/or tweak certain RPC behaviors.
     ClientContext context;
 
+    
+
     // The actual RPC.
     Status status = stub_->SayHello(&context, request, &reply);
 
@@ -100,12 +102,13 @@ int main(int argc, char** argv) {
   // of the user or robot running the client.
   // We don't use credentials when connecting to localhost for testing.
   std::shared_ptr<ChannelCredentials> channel_creds;
-  if (grpc_endpoint.find("localhost:") == 0 ||
-      grpc_endpoint.find("127.0.0.1:") == 0) {
-    channel_creds = grpc::InsecureChannelCredentials();
-  } else {
+  // if (grpc_endpoint.find("localhost:") == 0 ||
+  //     grpc_endpoint.find("127.0.0.1:") == 0) {
+  // channel_creds = grpc::InsecureChannelCredentials();
+  // } else {
     channel_creds = grpc::GoogleDefaultCredentials();
-  }
+  // channel_creds = grpc::SslCredentials(grpc::SslCredentialsOptions());
+  // }
 
   GreeterClient greeter(grpc::CreateChannel(grpc_endpoint, channel_creds));
   std::string user(name);

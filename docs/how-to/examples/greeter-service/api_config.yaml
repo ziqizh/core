@@ -1,0 +1,14 @@
+type: google.api.Service
+config_version: 3
+
+#
+# Name of the service configuration.
+#
+name: greeter-server.endpoints.cal-intern-project.cloud.goog
+
+#
+# API title to appear in the user interface (Google Cloud Console).
+#
+title: Hello gRPC API
+apis:
+- name: helloworld.Greeter
