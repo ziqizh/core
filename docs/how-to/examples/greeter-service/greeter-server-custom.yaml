@@ -38,8 +38,9 @@ spec:
         args: [
           "--http2_port=9000",
           "--backend=grpc://127.0.0.1:50051",
-          "--service=greeter-server.endpoints.cal-intern-project.cloud.goog",
+          "--service=helloworld.endpoints.cal-intern-project.cloud.goog",
           "--rollout_strategy=managed",
+          "--dns=169.254.169.254",
         ]
         ports:
           - containerPort: 9000
